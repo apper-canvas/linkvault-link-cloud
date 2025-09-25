@@ -1,19 +1,19 @@
-import { useState, useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useBookmarks } from "@/hooks/useBookmarks";
-import Header from "@/components/organisms/Header";
-import Sidebar from "@/components/organisms/Sidebar";
-import MobileSidebar from "@/components/organisms/MobileSidebar";
-import BookmarkGrid from "@/components/organisms/BookmarkGrid";
-import BookmarkForm from "@/components/organisms/BookmarkForm";
-import FolderForm from "@/components/organisms/FolderForm";
-import ConfirmDialog from "@/components/organisms/ConfirmDialog";
 import Modal from "@/components/atoms/Modal";
-import Loading from "@/components/ui/Loading";
-import Error from "@/components/ui/Error";
+import BookmarkForm from "@/components/organisms/BookmarkForm";
+import BookmarkGrid from "@/components/organisms/BookmarkGrid";
+import ConfirmDialog from "@/components/organisms/ConfirmDialog";
+import FolderForm from "@/components/organisms/FolderForm";
+import Header from "@/components/organisms/Header";
+import MobileSidebar from "@/components/organisms/MobileSidebar";
+import Sidebar from "@/components/organisms/Sidebar";
 import Empty from "@/components/ui/Empty";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
 
 const BookmarkPage = () => {
-  const {
+const {
     bookmarks,
     folders,
     loading,
@@ -23,6 +23,7 @@ const BookmarkPage = () => {
     updateBookmark,
     deleteBookmark,
     addFolder,
+    updateFolder,
     getTags,
     getBookmarkCounts
   } = useBookmarks();
@@ -144,8 +145,8 @@ const BookmarkPage = () => {
   };
 
   const handleFolderSubmit = async (folderData) => {
-    if (editingFolder) {
-      // await updateFolder(editingFolder.Id, folderData);
+if (editingFolder) {
+      await updateFolder(editingFolder.Id, folderData);
     } else {
       await addFolder(folderData);
     }

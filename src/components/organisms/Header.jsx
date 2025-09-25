@@ -2,6 +2,8 @@ import SearchBar from "@/components/molecules/SearchBar";
 import Button from "@/components/atoms/Button";
 import ApperIcon from "@/components/ApperIcon";
 
+import UserActions from '@/components/molecules/UserActions';
+
 const Header = ({ 
   onSearch, 
   onAddBookmark,
@@ -27,12 +29,17 @@ const Header = ({
           </div>
         </div>
 
-        <div className="flex items-center gap-4 flex-1 max-w-2xl">
+<div className="flex items-center gap-4 flex-1 max-w-2xl">
           <SearchBar
             onSearch={onSearch}
             placeholder="Search bookmarks, tags, or URLs..."
             className="flex-1"
           />
+        </div>
+        
+        {/* User Actions */}
+        <div className="flex items-center gap-4">
+          <UserActions />
           
           <Button onClick={onAddBookmark} className="flex items-center gap-2">
             <ApperIcon name="Plus" size={16} />
