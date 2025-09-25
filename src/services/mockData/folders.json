@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 1,
+    "name": "Development",
+    "color": "blue",
+    "createdAt": "2024-01-01T12:00:00Z"
+  },
+  {
+    "Id": 2,
+    "name": "Tools",
+    "color": "green",
+    "createdAt": "2024-01-02T12:00:00Z"
+  },
+  {
+    "Id": 3,
+    "name": "Design",
+    "color": "purple",
+    "createdAt": "2024-01-03T12:00:00Z"
+  },
+  {
+    "Id": 4,
+    "name": "Productivity",
+    "color": "yellow",
+    "createdAt": "2024-01-04T12:00:00Z"
+  }
+]

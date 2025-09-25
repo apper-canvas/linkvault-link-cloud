@@ -1,0 +1,122 @@
+[
+  {
+    "Id": 1,
+    "title": "React Documentation",
+    "url": "https://react.dev",
+    "description": "The official React documentation with hooks, components, and best practices",
+    "folderId": 1,
+    "tags": ["react", "javascript", "frontend", "documentation"],
+    "createdAt": "2024-01-15T10:30:00Z",
+    "updatedAt": "2024-01-15T10:30:00Z"
+  },
+  {
+    "Id": 2,
+    "title": "Tailwind CSS",
+    "url": "https://tailwindcss.com",
+    "description": "A utility-first CSS framework for rapidly building custom designs",
+    "folderId": 1,
+    "tags": ["css", "tailwind", "styling", "frontend"],
+    "createdAt": "2024-01-14T14:20:00Z",
+    "updatedAt": "2024-01-14T14:20:00Z"
+  },
+  {
+    "Id": 3,
+    "title": "GitHub",
+    "url": "https://github.com",
+    "description": "Code hosting platform for version control and collaboration",
+    "folderId": 2,
+    "tags": ["git", "github", "development", "collaboration"],
+    "createdAt": "2024-01-13T09:15:00Z",
+    "updatedAt": "2024-01-13T09:15:00Z"
+  },
+  {
+    "Id": 4,
+    "title": "Stack Overflow",
+    "url": "https://stackoverflow.com",
+    "description": "Q&A platform for programmers and developers",
+    "folderId": 2,
+    "tags": ["programming", "help", "community", "development"],
+    "createdAt": "2024-01-12T16:45:00Z",
+    "updatedAt": "2024-01-12T16:45:00Z"
+  },
+  {
+    "Id": 5,
+    "title": "MDN Web Docs",
+    "url": "https://developer.mozilla.org",
+    "description": "Comprehensive web development documentation and tutorials",
+    "folderId": 1,
+    "tags": ["mdn", "javascript", "web", "documentation"],
+    "createdAt": "2024-01-11T11:30:00Z",
+    "updatedAt": "2024-01-11T11:30:00Z"
+  },
+  {
+    "Id": 6,
+    "title": "Dribbble",
+    "url": "https://dribbble.com",
+    "description": "Design inspiration and portfolio showcase platform",
+    "folderId": 3,
+    "tags": ["design", "inspiration", "ui", "portfolio"],
+    "createdAt": "2024-01-10T13:20:00Z",
+    "updatedAt": "2024-01-10T13:20:00Z"
+  },
+  {
+    "Id": 7,
+    "title": "Figma",
+    "url": "https://figma.com",
+    "description": "Collaborative interface design tool",
+    "folderId": 3,
+    "tags": ["design", "figma", "ui", "collaboration"],
+    "createdAt": "2024-01-09T08:45:00Z",
+    "updatedAt": "2024-01-09T08:45:00Z"
+  },
+  {
+    "Id": 8,
+    "title": "Medium",
+    "url": "https://medium.com",
+    "description": "Platform for reading and writing on various topics",
+    "folderId": null,
+    "tags": ["reading", "articles", "blog", "learning"],
+    "createdAt": "2024-01-08T15:10:00Z",
+    "updatedAt": "2024-01-08T15:10:00Z"
+  },
+  {
+    "Id": 9,
+    "title": "CodePen",
+    "url": "https://codepen.io",
+    "description": "Online code editor and sharing platform for front-end development",
+    "folderId": 2,
+    "tags": ["code", "frontend", "playground", "sharing"],
+    "createdAt": "2024-01-07T12:25:00Z",
+    "updatedAt": "2024-01-07T12:25:00Z"
+  },
+  {
+    "Id": 10,
+    "title": "Notion",
+    "url": "https://notion.so",
+    "description": "All-in-one workspace for notes, tasks, and collaboration",
+    "folderId": 4,
+    "tags": ["productivity", "notes", "organization", "workspace"],
+    "createdAt": "2024-01-06T17:30:00Z",
+    "updatedAt": "2024-01-06T17:30:00Z"
+  },
+  {
+    "Id": 11,
+    "title": "Trello",
+    "url": "https://trello.com",
+    "description": "Visual project management tool using boards and cards",
+    "folderId": 4,
+    "tags": ["productivity", "project-management", "kanban", "collaboration"],
+    "createdAt": "2024-01-05T10:15:00Z",
+    "updatedAt": "2024-01-05T10:15:00Z"
+  },
+  {
+    "Id": 12,
+    "title": "Unsplash",
+    "url": "https://unsplash.com",
+    "description": "Beautiful free photos and images for any project",
+    "folderId": 3,
+    "tags": ["photos", "images", "free", "design"],
+    "createdAt": "2024-01-04T14:40:00Z",
+    "updatedAt": "2024-01-04T14:40:00Z"
+  }
+]
