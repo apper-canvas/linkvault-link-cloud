@@ -162,7 +162,8 @@ export const useBookmarks = () => {
   };
 
   return {
-    bookmarks,
+bookmarks,
+    scoreBookmark: handleScoreBookmark,
     folders,
     loading,
     error,
@@ -175,6 +176,24 @@ export const useBookmarks = () => {
     updateFolder,
     deleteFolder,
     getTags,
-    getBookmarkCounts
+getBookmarkCounts
+  };
+
+  const handleScoreBookmark = async (bookmarkId) => {
+    setLoading(true);
+    setError(null);
+    
+    try {
+      await bookmarkService.scoreBookmark(bookmarkId);
+      toast.success('Bookmark scored successfully');
+      await loadData();
+    } catch (err) {
+      const errorMessage = err.message || 'Failed to score bookmark';
+      setError(errorMessage);
+      toast.error(errorMessage);
+      console.error('Error scoring bookmark:', err);
+    } finally {
+      setLoading(false);
+    }
   };
 };

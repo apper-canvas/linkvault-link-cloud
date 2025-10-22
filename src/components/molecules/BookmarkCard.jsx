@@ -6,10 +6,11 @@ import ApperIcon from "@/components/ApperIcon";
 import { formatDistanceToNow } from "date-fns";
 
 const BookmarkCard = ({ 
-  bookmark, 
+bookmark, 
   onEdit, 
   onDelete, 
   onFolderClick,
+  onScoreGenerate,
   folder 
 }) => {
   const [showActions, setShowActions] = useState(false);
@@ -42,6 +43,16 @@ const BookmarkCard = ({
       onMouseEnter={() => setShowActions(true)}
       onMouseLeave={() => setShowActions(false)}
     >
+<div className="space-y-2">
+        {bookmark.score && (
+          <div className="flex items-center gap-1.5">
+            <ApperIcon name="Star" size={14} className="text-accent fill-accent" />
+            <span className="text-sm font-medium text-gray-700">
+              {bookmark.score.toFixed(1)}
+            </span>
+          </div>
+        )}
+      </div>
       <div className="space-y-3">
         {/* Header */}
         <div className="flex items-start justify-between gap-3">
@@ -76,7 +87,16 @@ const BookmarkCard = ({
           </div>
           
           {/* Actions */}
-          <div className={`flex items-center gap-1 transition-opacity ${showActions ? "opacity-100" : "opacity-0"}`}>
+<div className={`flex items-center gap-1 transition-opacity ${showActions ? "opacity-100" : "opacity-0"}`}>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => onScoreGenerate(bookmark.Id)}
+              className="p-1.5 h-auto text-gray-400 hover:text-accent"
+              title="Generate AI Score"
+            >
+              <ApperIcon name="Sparkles" size={14} />
+            </Button>
             <Button
               variant="ghost"
               size="sm"

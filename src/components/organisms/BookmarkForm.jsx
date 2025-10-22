@@ -18,7 +18,9 @@ const BookmarkForm = ({
     description: "",
     folderId: "",
     tags: []
-  });
+});
+
+  const [score, setScore] = useState(bookmark?.score || '');
   const [newTag, setNewTag] = useState("");
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);

@@ -14,13 +14,14 @@ export const bookmarkService = {
       const params = {
         fields: [
           {"field": {"Name": "Id"}},
-          {"field": {"Name": "title_c"}},
+{"field": {"Name": "title_c"}},
           {"field": {"Name": "url_c"}},
           {"field": {"Name": "description_c"}},
           {"field": {"Name": "tags_c"}},
           {"field": {"Name": "created_at_c"}},
           {"field": {"Name": "updated_at_c"}},
-          {"field": {"Name": "folder_id_c"}}
+          {"field": {"Name": "folder_id_c"}},
+          {"field": {"Name": "score_c"}}
         ],
         orderBy: [{"fieldName": "created_at_c", "sorttype": "DESC"}],
         pagingInfo: {"limit": 1000, "offset": 0}
@@ -47,7 +48,8 @@ export const bookmarkService = {
         folderId: bookmark.folder_id_c?.Id || bookmark.folder_id_c || null,
         tags: bookmark.tags_c ? (typeof bookmark.tags_c === 'string' ? bookmark.tags_c.split(',') : bookmark.tags_c) : [],
         createdAt: bookmark.created_at_c || new Date().toISOString(),
-        updatedAt: bookmark.updated_at_c || new Date().toISOString()
+updatedAt: bookmark.updated_at_c || new Date().toISOString(),
+        score: bookmark.score_c || null
       }));
     } catch (error) {
       console.error("Error fetching bookmarks:", error?.response?.data?.message || error);
@@ -66,14 +68,15 @@ export const bookmarkService = {
       
       const params = {
         fields: [
-          {"field": {"Name": "Id"}},
+{"field": {"Name": "Id"}},
           {"field": {"Name": "title_c"}},
           {"field": {"Name": "url_c"}},
           {"field": {"Name": "description_c"}},
           {"field": {"Name": "tags_c"}},
           {"field": {"Name": "created_at_c"}},
           {"field": {"Name": "updated_at_c"}},
-          {"field": {"Name": "folder_id_c"}}
+          {"field": {"Name": "folder_id_c"}},
+          {"field": {"Name": "score_c"}}
         ]
       };
       
@@ -92,8 +95,9 @@ export const bookmarkService = {
         description: bookmark.description_c || '',
         folderId: bookmark.folder_id_c?.Id || bookmark.folder_id_c || null,
         tags: bookmark.tags_c ? (typeof bookmark.tags_c === 'string' ? bookmark.tags_c.split(',') : bookmark.tags_c) : [],
-        createdAt: bookmark.created_at_c || new Date().toISOString(),
-        updatedAt: bookmark.updated_at_c || new Date().toISOString()
+createdAt: bookmark.created_at_c || new Date().toISOString(),
+        updatedAt: bookmark.updated_at_c || new Date().toISOString(),
+        score: bookmark.score_c || null
       };
     } catch (error) {
       console.error(`Error fetching bookmark ${id}:`, error?.response?.data?.message || error);
@@ -115,7 +119,8 @@ export const bookmarkService = {
         url_c: bookmarkData.url,
         description_c: bookmarkData.description || '',
         tags_c: Array.isArray(bookmarkData.tags) ? bookmarkData.tags.join(',') : (bookmarkData.tags || ''),
-        folder_id_c: bookmarkData.folderId ? parseInt(bookmarkData.folderId) : null,
+folder_id_c: bookmarkData.folderId ? parseInt(bookmarkData.folderId) : null,
+        score_c: bookmarkData.score ? parseFloat(bookmarkData.score) : null,
         created_at_c: new Date().toISOString(),
         updated_at_c: new Date().toISOString()
       };
@@ -163,7 +168,8 @@ export const bookmarkService = {
             folderId: created.folder_id_c?.Id || created.folder_id_c || null,
             tags: created.tags_c ? (typeof created.tags_c === 'string' ? created.tags_c.split(',') : created.tags_c) : [],
             createdAt: created.created_at_c || new Date().toISOString(),
-            updatedAt: created.updated_at_c || new Date().toISOString()
+updatedAt: created.updated_at_c || new Date().toISOString(),
+            score: created.score_c || null
           };
         }
       }
@@ -190,7 +196,8 @@ export const bookmarkService = {
         url_c: bookmarkData.url,
         description_c: bookmarkData.description || '',
         tags_c: Array.isArray(bookmarkData.tags) ? bookmarkData.tags.join(',') : (bookmarkData.tags || ''),
-        folder_id_c: bookmarkData.folderId ? parseInt(bookmarkData.folderId) : null,
+folder_id_c: bookmarkData.folderId ? parseInt(bookmarkData.folderId) : null,
+        score_c: bookmarkData.score ? parseFloat(bookmarkData.score) : null,
         updated_at_c: new Date().toISOString()
       };
       
@@ -237,7 +244,8 @@ export const bookmarkService = {
             folderId: updated.folder_id_c?.Id || updated.folder_id_c || null,
             tags: updated.tags_c ? (typeof updated.tags_c === 'string' ? updated.tags_c.split(',') : updated.tags_c) : [],
             createdAt: updated.created_at_c || new Date().toISOString(),
-            updatedAt: updated.updated_at_c || new Date().toISOString()
+updatedAt: updated.updated_at_c || new Date().toISOString(),
+            score: updated.score_c || null
           };
         }
       }
@@ -307,7 +315,8 @@ export const bookmarkService = {
           {"field": {"Name": "tags_c"}},
           {"field": {"Name": "created_at_c"}},
           {"field": {"Name": "updated_at_c"}},
-          {"field": {"Name": "folder_id_c"}}
+{"field": {"Name": "folder_id_c"}},
+          {"field": {"Name": "score_c"}}
         ],
         where: [{"FieldName": "folder_id_c", "Operator": "EqualTo", "Values": [parseInt(folderId)]}],
         orderBy: [{"fieldName": "created_at_c", "sorttype": "DESC"}]
@@ -331,8 +340,9 @@ export const bookmarkService = {
         url: bookmark.url_c || '',
         description: bookmark.description_c || '',
         folderId: bookmark.folder_id_c?.Id || bookmark.folder_id_c || null,
-        tags: bookmark.tags_c ? (typeof bookmark.tags_c === 'string' ? bookmark.tags_c.split(',') : bookmark.tags_c) : [],
+tags: bookmark.tags_c ? (typeof bookmark.tags_c === 'string' ? bookmark.tags_c.split(',') : bookmark.tags_c) : [],
         createdAt: bookmark.created_at_c || new Date().toISOString(),
+        score: bookmark.score_c || null,
         updatedAt: bookmark.updated_at_c || new Date().toISOString()
       }));
     } catch (error) {
@@ -354,11 +364,12 @@ export const bookmarkService = {
           {"field": {"Name": "Id"}},
           {"field": {"Name": "title_c"}},
           {"field": {"Name": "url_c"}},
-          {"field": {"Name": "description_c"}},
+{"field": {"Name": "description_c"}},
           {"field": {"Name": "tags_c"}},
           {"field": {"Name": "created_at_c"}},
           {"field": {"Name": "updated_at_c"}},
-          {"field": {"Name": "folder_id_c"}}
+          {"field": {"Name": "folder_id_c"}},
+          {"field": {"Name": "score_c"}}
         ],
         where: [{"FieldName": "tags_c", "Operator": "Contains", "Values": [tag]}],
         orderBy: [{"fieldName": "created_at_c", "sorttype": "DESC"}]
@@ -384,7 +395,8 @@ export const bookmarkService = {
         folderId: bookmark.folder_id_c?.Id || bookmark.folder_id_c || null,
         tags: bookmark.tags_c ? (typeof bookmark.tags_c === 'string' ? bookmark.tags_c.split(',') : bookmark.tags_c) : [],
         createdAt: bookmark.created_at_c || new Date().toISOString(),
-        updatedAt: bookmark.updated_at_c || new Date().toISOString()
+updatedAt: bookmark.updated_at_c || new Date().toISOString(),
+        score: bookmark.score_c || null
       }));
     } catch (error) {
       console.error("Error fetching bookmarks by tag:", error?.response?.data?.message || error);
@@ -411,7 +423,8 @@ export const bookmarkService = {
           {"field": {"Name": "tags_c"}},
           {"field": {"Name": "created_at_c"}},
           {"field": {"Name": "updated_at_c"}},
-          {"field": {"Name": "folder_id_c"}}
+{"field": {"Name": "folder_id_c"}},
+          {"field": {"Name": "score_c"}}
         ],
         whereGroups: [{
           "operator": "OR",
@@ -464,12 +477,40 @@ export const bookmarkService = {
         description: bookmark.description_c || '',
         folderId: bookmark.folder_id_c?.Id || bookmark.folder_id_c || null,
         tags: bookmark.tags_c ? (typeof bookmark.tags_c === 'string' ? bookmark.tags_c.split(',') : bookmark.tags_c) : [],
-        createdAt: bookmark.created_at_c || new Date().toISOString(),
-        updatedAt: bookmark.updated_at_c || new Date().toISOString()
+createdAt: bookmark.created_at_c || new Date().toISOString(),
+        updatedAt: bookmark.updated_at_c || new Date().toISOString(),
+        score: bookmark.score_c || null
       }));
     } catch (error) {
+} catch (error) {
       console.error("Error searching bookmarks:", error?.response?.data?.message || error);
       return [];
     }
+  }
+};
+
+export const scoreBookmark = async (bookmarkId) => {
+    const apperClient = new ApperClient({
+      apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+      apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+    });
+
+    const result = await apperClient.functions.invoke(import.meta.env.VITE_SCORE_BOOKMARK, {
+      body: JSON.stringify({ bookmarkId }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!result.success) {
+      console.info(`apper_info: Got an error in this function: ${import.meta.env.VITE_SCORE_BOOKMARK}. The response body is: ${JSON.stringify(result)}.`);
+      throw new Error(result.message || 'Failed to score bookmark');
+    }
+
+    return result.data;
+  } catch (error) {
+    console.info(`apper_info: Got this error in this function: ${import.meta.env.VITE_SCORE_BOOKMARK}. The error is: ${error.message}`);
+    throw error;
+  }
 }
 };

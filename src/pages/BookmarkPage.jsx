@@ -25,7 +25,8 @@ const {
     addFolder,
     updateFolder,
     getTags,
-    getBookmarkCounts
+    getBookmarkCounts,
+    scoreBookmark
   } = useBookmarks();
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -144,14 +145,18 @@ const {
     setShowFolderModal(true);
   };
 
-  const handleFolderSubmit = async (folderData) => {
-if (editingFolder) {
+const handleFolderSubmit = async (folderData) => {
+    if (editingFolder) {
       await updateFolder(editingFolder.Id, folderData);
     } else {
       await addFolder(folderData);
     }
     setShowFolderModal(false);
     setEditingFolder(null);
+  };
+
+  const handleScoreBookmark = async (bookmarkId) => {
+    await scoreBookmark(bookmarkId);
   };
 
   const getPageTitle = () => {
@@ -270,12 +275,13 @@ if (editingFolder) {
                 icon={searchQuery ? "Search" : "BookOpen"}
               />
             ) : (
-              <BookmarkGrid
+<BookmarkGrid
                 bookmarks={filteredBookmarks}
                 folders={folders}
                 onEdit={handleEditBookmark}
                 onDelete={handleDeleteBookmark}
                 onFolderClick={handleFolderSelect}
+                onScoreGenerate={handleScoreBookmark}
               />
             )}
           </div>
