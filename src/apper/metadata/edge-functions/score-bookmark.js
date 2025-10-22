@@ -9,7 +9,7 @@ apper.serve(async (req) => {
     if (!bookmarkId) {
       return new Response(JSON.stringify({
         success: false,
-        message: 'Bookmark ID is required'
+        message: 'Bookmark Id is required'
       }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' }
