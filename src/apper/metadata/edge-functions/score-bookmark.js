@@ -16,7 +16,7 @@ apper.serve(async (req) => {
       });
     }
 
-    // Fetch bookmark data from database
+    // Fetch bookmark data from the database
     const bookmarkResponse = await apperClient.getRecordById('bookmark_c', bookmarkId, {
       fields: [
         {"field": {"Name": "Id"}},
